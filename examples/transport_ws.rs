@@ -39,7 +39,8 @@ fn balance_test() {
         let account_from = "0x0005DdDCCBd5AF0880564BCB6a3eA308B214FB50";
         let mut acc_from = eth_address_from_str_to_H160(&account_from[2..]);
 
-        let balance_before = web3.eth().balance(acc_from, None).await;
+       // let balance_before = web3.eth().balance(acc_from, None).await;
+        let balance_before = web3.eth().block_number().await;
 //        let nonce = web3.eth().transaction_count(acc_from, None).await.unwrap();
 //
 //        let signed_tx = construct_tx(http_url ,account_from, "0x7a250d5630b4cf539739df2c5dacb4c659f2488d", 1_000_000_000_000_000_000 , nonce, data).await;

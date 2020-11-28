@@ -36,7 +36,7 @@ impl<T: Transport> Eth<T> {
 
     /// Get current block number
     pub fn block_number(&self) -> CallFuture<U64, T::Out> {
-        CallFuture::new(self.transport.execute("eth_blockNumber", vec![]))
+        CallFuture::new(self.transport.execute("platon_blockNumber", vec![]))
     }
 
     /// Call a constant method of contract without changing the state of the blockchain.
