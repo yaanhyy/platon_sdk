@@ -7,6 +7,7 @@ use crate::types::{
     TransactionId, TransactionReceipt, TransactionRequest, Work, H256, H520, H64, U256, U64,
 };
 use crate::Transport;
+use crate::Web3;
 
 /// `Eth` namespace
 #[derive(Debug, Clone)]
@@ -91,7 +92,7 @@ impl<T: Transport> Eth<T> {
         let address = helpers::serialize(&address);
         let block = helpers::serialize(&block.unwrap_or(BlockNumber::Latest));
 
-        CallFuture::new(self.transport.execute("eth_getBalance", vec![address, block]))
+        CallFuture::new(self.transport.execute("platon_getBalance", vec![address, block]))
     }
 
     /// Get all logs matching a given filter object
@@ -327,6 +328,7 @@ impl<T: Transport> Eth<T> {
         CallFuture::new(self.transport.execute("eth_syncing", vec![]))
     }
 }
+
 
 #[cfg(test)]
 mod tests {

@@ -28,6 +28,7 @@ serde = { version = "1.0.90", features = ["derive"] }
 serde_json = "1.0.39"
 tiny-keccak = { version = "2.0.1", features = ["keccak"] }
 pin-project = "1.0"
+hex = "0.4.2"
 # Optional deps
 ## HTTP
 base64 = { version = "0.13", optional = true }
@@ -51,7 +52,7 @@ env_logger = "0.8"
 tokio = { version = "0.2", features = ["full"] }
 
 [features]
-default = ["http-tls", "ws-tls-tokio"]
+default = ["http-tls", "ws-tls-async-std"]
 http = ["hyper", "hyper-proxy", "url", "base64", "typed-headers"]
 http-tls = ["hyper-tls", "native-tls", "http"]
 ws-tokio = ["soketto", "url", "tokio", "tokio-util"]
